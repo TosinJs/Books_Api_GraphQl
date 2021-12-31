@@ -1,8 +1,10 @@
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
+const connectDB = require("./db");
 const schema = require("./Schema/BookSchema")
 
 const app = express();
+connectDB()
 
 app.use("/graphql", graphqlHTTP({
     schema,
